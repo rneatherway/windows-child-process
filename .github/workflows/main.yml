@@ -7,11 +7,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
+        node: [6, 8, 10]
     
     runs-on: ${{ matrix.os }}
     
     steps:
     - uses: actions/checkout@v1
+    - name: Echo a variable
+      run: echo ${{ matrix.node }}
     - name: Run a one-line script
       run: javac Main.java
     - name: Run a multi-line script
